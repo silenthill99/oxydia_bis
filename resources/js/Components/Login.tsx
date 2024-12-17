@@ -14,7 +14,7 @@ const Login = (props: PageProps) => {
                     href={route('dashboard')}
                     className="rounded-md px-3 py-2 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                 >
-                    Dashboard
+                    {props.auth.name}
                 </Link>
             ) : (
                 <>
