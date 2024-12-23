@@ -8,6 +8,7 @@ type Props = {
     projects?: boolean,
     rulesPvp?: boolean,
     rulesRp?: boolean,
+    contacts?: boolean
 }
 
 const Header = (props: Props) => {
@@ -26,6 +27,7 @@ const Header = (props: Props) => {
                             <li className={"w-52"}><a href="" className={"hover:bg-blue-500 inline-block w-full"}>Règlement Harry PoCraft</a></li>
                         </ul>
                     </div>
+                    <a href={route('contacts')} className={props.contacts ? "border-x border-white hover:underline p-2" : "hover:underline p-2"}>Nous contacter</a>
                 </nav>
                 <Login auth={props.auth}/>
             </div>

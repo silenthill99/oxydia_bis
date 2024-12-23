@@ -39,4 +39,12 @@ Route::get('/essai', function () {
     ]);
 });
 
+Route::get("/contacts", function () {
+    return Inertia::render("Contacts");
+})->middleware("auth")->name('contacts');
+
+Route::post("/contacts", function () {
+    return Inertia::render("Contacts");
+});
+
 require __DIR__.'/auth.php';
