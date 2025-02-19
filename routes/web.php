@@ -47,4 +47,8 @@ Route::post("/contacts", function () {
     return Inertia::render("Contacts");
 });
 
+Route::get("/images", function () {
+    return Inertia::render("Images");
+})->name('images');
+
 require __DIR__.'/auth.php';

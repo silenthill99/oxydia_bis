@@ -5,7 +5,7 @@ import Footer from "@/Components/Footer";
 
 export default function Welcome({auth}: PageProps<{ laravelVersion: string; phpVersion: string }>) {
     return (
-        <div className={"h-screen flex flex-col"}>
+        <div className={"min-h-screen flex flex-col"}>
             <Head title="Page d'accueil"/>
             <Header auth={auth.user} accueil={true}/>
             <main className={"container mx-auto grow"}>
