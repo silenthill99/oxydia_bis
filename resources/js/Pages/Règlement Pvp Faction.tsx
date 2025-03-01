@@ -1,18 +1,15 @@
 import React from 'react';
-import {PageProps, User} from "@/types";
-import Header from "@/Components/Header";
+import {PageProps} from "@/types";
 import {Head} from "@inertiajs/react";
-import Footer from "@/Components/Footer";
+import PageComponents from "@/Components/PageComponents";
 
 
-const RèglementPvpFaction = ({auth}: PageProps<{laravelVersion: string; phpVersion: string}>) => {
+const ReglementPvpFaction = ({auth}: PageProps<{laravelVersion: string; phpVersion: string}>) => {
     return (
-        <div className={"h-screen flex flex-col"}>
-        <Head title={"Règlement Pvp Faction"}/>
-        <Header auth={auth.user} rulesPvp/>
-        <main className={"container mx-auto grow relative"}>
+        <PageComponents auth={auth.user}>
+            <Head title={"Règlement Pvp Faction"}/>
             <h1>Règlement Pvp-Faction</h1>
-            <p>Ce règlement est disposé à être modifié régulièrement. Songez donc à le consulter de façon régulière.</p>
+            <p className={"text-red-400"}>Ce règlement est disposé à être modifié régulièrement. Songez donc à le consulter de façon régulière.</p>
             <ol className={"list-decimal list-inside my-20"}>
                 <li className={"text-3xl underline"}>
                     <strong>Le cheat</strong>
@@ -70,11 +67,9 @@ const RèglementPvpFaction = ({auth}: PageProps<{laravelVersion: string; phpVers
                     Vos opinions politiques vous sont propres. Merci de ne pas débattre là-dessus sur le serveur.
                 </p>
             </ol>
-        </main>
-        <Footer/>
-        </div>
+        </PageComponents>
     );
 };
 
 
-export default RèglementPvpFaction;
+export default ReglementPvpFaction;

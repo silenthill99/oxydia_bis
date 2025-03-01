@@ -22,6 +22,10 @@ Route::get("/rules-rp", function () {
     return Inertia::render("Règlement RP");
 })->name('rules-rp');
 
+Route::get("/rules-hp", function () {
+    return Inertia::render("Règlement Harry PoCraft");
+})->name('rules-hp');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

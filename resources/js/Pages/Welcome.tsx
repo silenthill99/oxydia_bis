@@ -1,20 +1,14 @@
 import {PageProps} from '@/types';
-import { Head } from '@inertiajs/react';
-import Header from "@/Components/Header";
-import Footer from "@/Components/Footer";
+import {Head} from '@inertiajs/react';
+import PageComponents from "@/Components/PageComponents";
 
-export default function Welcome({auth}: PageProps<{ laravelVersion: string; phpVersion: string }>) {
+export default function Welcome({auth}: PageProps) {
     return (
-        <div className={"min-h-screen flex flex-col"}>
+        <PageComponents auth={auth.user}>
             <Head title="Page d'accueil"/>
-            <Header auth={auth.user} accueil={true}/>
-            <main className={"container mx-auto grow"}>
-                <h1>Page d'accueil</h1>
-                <p>Bienvenue sur le site principal de l'infrastructure Oxydia</p>
-                <p>Oxydia est un projet de network ayant pour but de regrouper divers serveurs Minecraft.</p>
-
-            </main>
-            <Footer/>
-        </div>
-    );
+            <h1>Page d'accueil</h1>
+            <p>Bienvenue sur le site principal de l'infrastructure Oxydia</p>
+            <p>Oxydia est un projet de network ayant pour but de regrouper divers serveurs Minecraft.</p>
+        </PageComponents>
+    )
 }

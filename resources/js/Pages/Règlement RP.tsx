@@ -1,20 +1,15 @@
 import React from 'react';
 import {PageProps} from "@/types";
-import Header from '@/Components/Header';
-import Footer from "@/Components/Footer";
 import {Head} from "@inertiajs/react";
+import PageComponents from "@/Components/PageComponents";
 
-const RèglementRp = ({auth}: PageProps<{laravelVersion: string; phpVersion: string}>) => {
+const ReglementRp = ({auth}: PageProps<{laravelVersion: string; phpVersion: string}>) => {
     return (
-        <div className={"h-screen flex flex-col"}>
+        <PageComponents auth={auth.user}>
             <Head title={"Règlement RP"}/>
-            <Header auth={auth.user} rulesRp/>
-            <main className={"grow container mx-auto"}>
-                <h1>Règlement RolePlay</h1>
-            </main>
-            <Footer/>
-        </div>
+            <h1>Règlement RolePlay</h1>
+        </PageComponents>
     );
 };
 
-export default RèglementRp;
+export default ReglementRp;
