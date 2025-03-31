@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\Message;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -36,18 +38,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/essai', function () {
-    return Inertia::render("Essai", [
-        'user' => Auth::user(),
-        'message' => "Bonjour depuis Laravel"
-    ]);
-});
-
 Route::get("/contacts", function () {
     return Inertia::render("Contacts");
 })->middleware("auth")->name('contacts');
 
-Route::post("/contacts", function () {
+Route::post("/contacts", function (Request $request) {
+    $msg = Message::create([
+        "subject" => $request->subject,
+        "servers" => $request->servers,
+        "message" => $request->message
+    ]);
     return Inertia::render("Contacts");
 });
 
