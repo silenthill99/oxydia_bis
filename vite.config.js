@@ -10,4 +10,10 @@ export default defineConfig({
         }),
         react(),
     ],
+    server: {
+        cors: {
+            origin: ['http://oxydia.test', 'http://localhost'],  // Ajoute les origines autorisées
+            methods: ['GET', 'POST', 'PUT', 'DELETE'], // Les méthodes HTTP autorisées
+        },
+    },
 });
