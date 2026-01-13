@@ -45,4 +45,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function messages(): void
+    {
+        $this->hasMany(Message::class);
+    }
 }

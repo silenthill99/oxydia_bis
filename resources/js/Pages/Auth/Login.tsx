@@ -4,10 +4,9 @@ import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
-import { Head, Link, useForm } from '@inertiajs/react';
-import { FormEventHandler } from 'react';
-import {login} from "@/routes";
+import {Form, Head, Link} from '@inertiajs/react';
 import password from "@/routes/password";
+import AuthenticatedSessionController from "@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController";
 
 export default function Login({
     status,
@@ -16,20 +15,6 @@ export default function Login({
     status?: string;
     canResetPassword: boolean;
 }) {
-    const { data, setData, post, processing, errors, reset } = useForm({
-        email: '',
-        password: '',
-        remember: false,
-    });
-
-    const submit: FormEventHandler = (e) => {
-        e.preventDefault();
-
-        post(login().url, {
-            onFinish: () => reset('password'),
-        });
-    };
-
     return (
         <GuestLayout>
             <Head title="Log in" />
@@ -40,70 +25,66 @@ export default function Login({
                 </div>
             )}
 
-            <form onSubmit={submit}>
-                <div>
-                    <InputLabel htmlFor="email" value="Email" />
+            <Form {...AuthenticatedSessionController.store.form()}>
+                {({errors, processing}) => (
+                    <>
+                        <div>
+                            <InputLabel htmlFor="email" value="Email" />
 
-                    <TextInput
-                        id="email"
-                        type="email"
-                        name="email"
-                        value={data.email}
-                        className="mt-1 block w-full"
-                        autoComplete="username"
-                        isFocused={true}
-                        onChange={(e) => setData('email', e.target.value)}
-                    />
+                            <TextInput
+                                id="email"
+                                type="email"
+                                name="email"
+                                className="mt-1 block w-full"
+                                autoComplete="username"
+                                isFocused={true}
+                            />
 
-                    <InputError message={errors.email} className="mt-2" />
-                </div>
+                            <InputError message={errors.email} className="mt-2" />
+                        </div>
 
-                <div className="mt-4">
-                    <InputLabel htmlFor="password" value="Password" />
+                        <div className="mt-4">
+                            <InputLabel htmlFor="password" value="Password" />
 
-                    <TextInput
-                        id="password"
-                        type="password"
-                        name="password"
-                        value={data.password}
-                        className="mt-1 block w-full"
-                        autoComplete="current-password"
-                        onChange={(e) => setData('password', e.target.value)}
-                    />
+                            <TextInput
+                                id="password"
+                                type="password"
+                                name="password"
+                                className="mt-1 block w-full"
+                                autoComplete="current-password"
+                            />
 
-                    <InputError message={errors.password} className="mt-2" />
-                </div>
+                            <InputError message={errors.password} className="mt-2" />
+                        </div>
 
-                <div className="mt-4 block">
-                    <label className="flex items-center">
-                        <Checkbox
-                            name="remember"
-                            checked={data.remember}
-                            onChange={(e) =>
-                                setData('remember', e.target.checked)
-                            }
-                        />
-                        <span className="ms-2 text-sm text-gray-600">
+                        <div className="mt-4 block">
+                            <label className="flex items-center">
+                                <Checkbox
+                                    name="remember"
+                                />
+                                <span className="ms-2 text-sm text-gray-600">
                             Remember me
                         </span>
-                    </label>
-                </div>
+                            </label>
+                        </div>
 
-                <div className="mt-4 flex items-center justify-end">
-                    {canResetPassword && (
-                        <Link
-                            href={password.request()}
-                            className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                        >
-                            Forgot your password?
-                        </Link>
-                    )}
+                        <div className="mt-4 flex items-center justify-end">
+                            {canResetPassword && (
+                                <Link
+                                    href={password.request()}
+                                    className="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                                >
+                                    Forgot your password?
+                                </Link>
+                            )}
 
-                    <PrimaryButton className="ms-4" disabled={processing}>
-                        Log in
-                    </PrimaryButton>
-                </div>
-            </form>
+                            <PrimaryButton className="ms-4" disabled={processing}>
+                                Log in
+                            </PrimaryButton>
+                        </div>
+                    </>
+                )}
+            </Form>
         </GuestLayout>
     );
 }
