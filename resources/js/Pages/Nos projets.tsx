@@ -1,9 +1,10 @@
 import React from 'react';
-import {PageProps} from "@/types";
-import {Head} from "@inertiajs/react";
+import {Head, usePage} from "@inertiajs/react";
 import PageComponents from "@/Components/PageComponents";
+import {SharedData} from "@/types";
 
-const NosProjets = ({auth}: PageProps<{laravelVersion: string, phpVersion: string}>) => {
+const NosProjets = () => {
+    const {auth} = usePage<SharedData>().props
     return (
         <PageComponents auth={auth.user} className={"flex flex-col justify-center items-center"}>
             <Head title={"Nos projets"}/>

@@ -1,21 +1,20 @@
 import React from 'react';
-import {User} from "@/types";
-import {Link} from "@inertiajs/react";
+import {SharedData} from "@/types";
+import {Link, usePage} from "@inertiajs/react";
 import {dashboard, login, register} from "@/routes";
 
-type PageProps = {
-    auth: User;
-}
+interface Props extends React.HTMLProps<HTMLDivElement> {}
 
-const Login = (props: PageProps) => {
+const Login = ({...props}: Props) => {
+    const {auth} = usePage<SharedData>().props
     return (
-        <div>
-            {props.auth ? (
+        <div {...props}>
+            {auth.user ? (
                 <Link
                     href={dashboard()}
                     className="rounded-md px-3 py-2 ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                 >
-                    {props.auth.name}
+                    {auth.user.name}
                 </Link>
             ) : (
                 <>
