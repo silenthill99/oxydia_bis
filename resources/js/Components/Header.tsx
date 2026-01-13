@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import Login from "@/Components/Login";
 import {Link, usePage} from "@inertiajs/react";
-import {accueil, contacts, images, projects, rulesHp, rulesPvp, rulesRp} from "@/routes";
+import {accueil, contacts, projects, rulesHp, rulesPvp, rulesRp} from "@/routes";
 import {MenuIcon} from "lucide-react";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion";
 import {Separator} from "@/Components/ui/separator";
+import images from "@/routes/images";
 
 const Header = () => {
 
@@ -30,7 +31,7 @@ const Header = () => {
         },
         {
             label: "Quelques images",
-            href: images(),
+            href: images.index(),
         },
         {
             label: "Nous contacter",
@@ -46,7 +47,7 @@ const Header = () => {
     const isDropdownActive = url === "/rules-pvp" || url === "/rules-rp" || url === "/rules-hp";
 
     return (
-        <header className="bg-gradient-to-r from-blue-600 via-blue-500 to-indigo-600 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white shadow-lg z-50">
+        <header className="bg-linear-to-r from-blue-600 via-blue-500 to-indigo-600 dark:from-gray-800 dark:via-gray-900 dark:to-gray-800 text-white shadow-lg z-50">
             <div className="container mx-auto flex justify-between items-center flex-wrap px-4 py-3 md:px-6">
                 <Link href={accueil()} className="group">
                     <h1 className="text-2xl font-bold tracking-tight transition-transform duration-200 group-hover:scale-105">

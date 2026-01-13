@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\WelcomeController;
 use App\Models\Message;
@@ -42,17 +44,12 @@ Route::get("/contacts", function () {
     return Inertia::render("Contacts");
 })->middleware("auth")->name('contacts');
 
-Route::post("/contacts", function (Request $request) {
-    $msg = Message::create([
-        "subject" => $request->subject,
-        "servers" => $request->servers,
-        "message" => $request->message
-    ]);
-    return Inertia::render("Contacts");
+Route::post("/contacts", [MessageController::class, 'store'])->name('messages.store');
+
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+    Route::resource("/images", ImageController::class)->except("index", "show");
 });
 
-Route::get("/images", function () {
-    return Inertia::render("Images");
-})->name('images');
+Route::resource("/images", ImageController::class)->only("index");
 
 require __DIR__.'/auth.php';

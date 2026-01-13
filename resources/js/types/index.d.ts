@@ -13,3 +13,13 @@ export interface SharedData {
 
     [key: string]: unknown;
 }
+
+export interface Image {
+    id: number;
+    image_path: string;
+    server_name: string;
+    image_name: string;
+    user: User;
+    created_at: string;
+    updated_at: string;
+}
