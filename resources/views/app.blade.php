@@ -11,7 +11,6 @@
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
         <!-- Scripts -->
-        @routes
         @viteReactRefresh
         @vite(['resources/js/app.tsx', "resources/js/Pages/{$page['component']}.tsx"])
         @inertiaHead

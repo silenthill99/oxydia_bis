@@ -5,6 +5,7 @@ import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import { Head, useForm } from '@inertiajs/react';
 import { FormEventHandler } from 'react';
+import password from "@/routes/password";
 
 export default function ResetPassword({
     token,
@@ -23,7 +24,7 @@ export default function ResetPassword({
     const submit: FormEventHandler = (e) => {
         e.preventDefault();
 
-        post(route('password.store'), {
+        post(password.store().url, {
             onFinish: () => reset('password', 'password_confirmation'),
         });
     };
