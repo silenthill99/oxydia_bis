@@ -1,5 +1,5 @@
 import React from 'react';
-import {SharedData} from "@/types";
+import SharedData from "@/types";
 import {Link, usePage} from "@inertiajs/react";
 import {dashboard, login, register} from "@/routes";
 

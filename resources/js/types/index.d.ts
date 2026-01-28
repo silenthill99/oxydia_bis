@@ -5,7 +5,7 @@ export interface User {
     email_verified_at?: string;
 }
 
-export interface SharedData {
+interface SharedData {
     name: string;
     quote: { message: string; author: string };
     auth: Auth;
@@ -13,6 +13,8 @@ export interface SharedData {
 
     [key: string]: unknown;
 }
+
+export default SharedData
 
 export interface Image {
     id: number;

@@ -6,7 +6,7 @@ import { Transition } from '@headlessui/react';
 import {Form, Link, usePage} from '@inertiajs/react';
 import profile from "@/routes/profile";
 import verification from "@/routes/verification";
-import {SharedData} from "@/types";
+import SharedData from "@/types";
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
