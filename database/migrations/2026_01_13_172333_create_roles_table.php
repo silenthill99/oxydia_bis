@@ -17,7 +17,7 @@ return new class extends Migration
     {
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
-            $table->enum('role', RoleEnum::cases());
+            $table->enum('role', array_column(RoleEnum::cases(), 'value'));
             $table->timestamps();
         });
 
@@ -25,14 +25,6 @@ return new class extends Migration
             $table->foreignIdFor(Role::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete()->cascadeOnUpdate();
         });
-
-        foreach (RoleEnum::cases() as $role) {
-            DB::table('roles')->insert([
-                'role' => $role->value,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
-        }
     }
     /**
      * Reverse the migrations.
