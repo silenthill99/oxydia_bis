@@ -1,12 +1,10 @@
 import React from 'react';
-import {Head, usePage} from "@inertiajs/react";
+import {Head} from "@inertiajs/react";
 import PageComponents from "@/Components/PageComponents";
-import {SharedData} from "@/types";
 
 const NosProjets = () => {
-    const {auth} = usePage<SharedData>().props
     return (
-        <PageComponents auth={auth.user} className={"flex flex-col justify-center items-center"}>
+        <PageComponents className={"flex flex-col justify-center items-center"}>
             <Head title={"Nos projets"}/>
             <h1>Nos projets</h1>
             <ul className={"list-disc list-inside"}>

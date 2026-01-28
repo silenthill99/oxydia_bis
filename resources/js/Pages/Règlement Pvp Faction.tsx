@@ -1,12 +1,11 @@
 import React from 'react';
-import {PageProps} from "@/types";
 import {Head} from "@inertiajs/react";
 import PageComponents from "@/Components/PageComponents";
 
 
-const ReglementPvpFaction = ({auth}: PageProps<{laravelVersion: string; phpVersion: string}>) => {
+const ReglementPvpFaction = () => {
     return (
-        <PageComponents auth={auth.user}>
+        <PageComponents>
             <Head title={"Règlement Pvp Faction"}/>
             <h1>Règlement Pvp-Faction</h1>
             <p className={"text-red-400"}>Ce règlement est disposé à être modifié régulièrement. Songez donc à le consulter de façon régulière.</p>
