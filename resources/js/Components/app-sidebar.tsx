@@ -9,11 +9,16 @@ import {
 } from "@/Components/ui/sidebar";
 import {dashboard} from "@/routes";
 import {Link, usePage} from "@inertiajs/react";
+import profile from "@/routes/profile";
 
 const navItems = [
     {
         label: "Tableau de bord",
         url: dashboard()
+    },
+    {
+        label: "Modifier le profil",
+        url: profile.edit()
     }
 ]
 
