@@ -29,7 +29,7 @@ Route::get("/rules-hp", function () {
     return Inertia::render("Règlement Harry PoCraft");
 })->name('rules-hp');
 
-Route::get('/dashboard',[DashboardController::class])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
