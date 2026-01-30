@@ -1,15 +1,16 @@
 import React from 'react';
 import {
     Sidebar,
-    SidebarContent,
+    SidebarContent, SidebarFooter,
     SidebarGroup,
     SidebarGroupContent,
-    SidebarGroupLabel,
+    SidebarGroupLabel, SidebarHeader,
     SidebarMenu, SidebarMenuButton, SidebarMenuItem
 } from "@/Components/ui/sidebar";
-import {dashboard} from "@/routes";
+import {accueil, dashboard, logout} from "@/routes";
 import {Link, usePage} from "@inertiajs/react";
 import profile from "@/routes/profile";
+import {HomeIcon} from "lucide-react";
 
 const navItems = [
     {
@@ -34,14 +35,30 @@ const AppSidebar = () => {
     }
 
     return (
-        <Sidebar>
+        <Sidebar variant={"inset"}>
+            <SidebarHeader>
+                <SidebarGroup>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton>
+                                    <Link href={accueil()} className="flex items-center gap-2">
+                                        <HomeIcon />
+                                        <span>Retour à la page d'accueil</span>
+                                    </Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+            </SidebarHeader>
             <SidebarContent>
                 <SidebarGroup>
                     <SidebarGroupLabel>Application</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
-                            {navItems.map((item) => (
-                                <SidebarMenuItem>
+                            {navItems.map((item, i) => (
+                                <SidebarMenuItem key={i}>
                                     <SidebarMenuButton asChild isActive={isActive(item.url.url)}>
                                         <Link href={item.url}>{item.label}</Link>
                                     </SidebarMenuButton>
@@ -51,6 +68,19 @@ const AppSidebar = () => {
                     </SidebarGroupContent>
                 </SidebarGroup>
             </SidebarContent>
+            <SidebarFooter>
+                <SidebarGroup>
+                    <SidebarGroupContent>
+                        <SidebarMenu>
+                            <SidebarMenuItem>
+                                <SidebarMenuButton asChild>
+                                    <Link href={logout()} className={"text-red-600! hover:underline"}>Se déconnecter</Link>
+                                </SidebarMenuButton>
+                            </SidebarMenuItem>
+                        </SidebarMenu>
+                    </SidebarGroupContent>
+                </SidebarGroup>
+            </SidebarFooter>
         </Sidebar>
     );
 };
