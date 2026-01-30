@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
     Sidebar,
     SidebarContent, SidebarFooter,
@@ -11,6 +11,7 @@ import {accueil, dashboard, logout} from "@/routes";
 import {Link, usePage} from "@inertiajs/react";
 import profile from "@/routes/profile";
 import {HomeIcon} from "lucide-react";
+import SharedData from "@/types";
 
 const navItems = [
     {
@@ -25,7 +26,12 @@ const navItems = [
 
 const AppSidebar = () => {
 
+    const {auth} = usePage<SharedData>().props;
     const {url} = usePage()
+
+    useEffect(() => {
+        console.log(auth.isAdmin)
+    }, [])
 
     const isActive = (link: string) => {
         if (link === "/") {
@@ -67,6 +73,14 @@ const AppSidebar = () => {
                         </SidebarMenu>
                     </SidebarGroupContent>
                 </SidebarGroup>
+                {auth.isAdmin && (
+                    <SidebarGroup>
+                        <SidebarGroupLabel>Partie administrateur</SidebarGroupLabel>
+                        <SidebarGroupContent>
+                            <p>Essai</p>
+                        </SidebarGroupContent>
+                    </SidebarGroup>
+                )}
             </SidebarContent>
             <SidebarFooter>
                 <SidebarGroup>

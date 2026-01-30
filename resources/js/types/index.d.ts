@@ -6,6 +6,11 @@ export interface User {
     messages: Message[];
 }
 
+interface Auth {
+    user: User | null;
+    isAdmin: boolean;
+}
+
 interface SharedData {
     name: string;
     quote: { message: string; author: string };
@@ -25,4 +30,9 @@ export interface Image {
     user: User;
     created_at: string;
     updated_at: string;
+}
+
+export interface Role {
+    id: number;
+    role: string;
 }
