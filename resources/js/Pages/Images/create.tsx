@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState} from 'react';
 import PageComponents from "@/Components/PageComponents";
-import {Form} from "@inertiajs/react";
+import {Form, Head} from "@inertiajs/react";
 import {Label} from "@/Components/ui/label";
 import {Input} from "@/Components/ui/input";
 import InputError from "@/Components/InputError";
@@ -19,6 +19,7 @@ const Create = () => {
     }
     return (
         <PageComponents>
+            <Head title={"Ajouter une image"}/>
             <Form {...ImageController.store.form()}>
                 {({errors}) => (
                     <div className={"space-y-4"}>
