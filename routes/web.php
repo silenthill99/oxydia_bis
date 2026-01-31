@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\GestionImageController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
@@ -45,8 +46,9 @@ Route::post("/contacts", [MessageController::class, 'store'])->name('messages.st
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::resource("/images", ImageController::class)->except("index", "show");
+    Route::get("/gestion-images", GestionImageController::class)->name("gestion-images");
 });
 
-Route::resource("/images", ImageController::class)->only("index", "store");
+Route::resource("images", ImageController::class)->only("index");
 
 require __DIR__.'/auth.php';

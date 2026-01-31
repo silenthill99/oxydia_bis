@@ -6,6 +6,7 @@ use App\Http\Resources\ImageResource;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class ImageController extends Controller
@@ -42,6 +43,18 @@ class ImageController extends Controller
 
         Auth::user()->images()->create($data);
 
+        return redirect()->route('images.index');
+    }
+
+    public function destroy(Image $image) {
+        $this->authorize("delete", $image);
+
+        if (Storage::disk("public")->exists($image->image_path))
+        {
+            Storage::disk("public")->delete($image->image_path);
+        }
+
+        $image->delete();
         return redirect()->route('images.index');
     }
 }

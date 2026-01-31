@@ -46,7 +46,7 @@ class ImagePolicy
      */
     public function delete(User $user, Image $image): bool
     {
-        return false;
+        return $image->user()->is($user) || $user->can('isAdmin');
     }
 
     /**

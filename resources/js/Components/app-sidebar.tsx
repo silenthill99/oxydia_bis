@@ -7,7 +7,7 @@ import {
     SidebarGroupLabel, SidebarHeader,
     SidebarMenu, SidebarMenuButton, SidebarMenuItem
 } from "@/Components/ui/sidebar";
-import {accueil, dashboard, logout} from "@/routes";
+import {accueil, dashboard, gestionImages, logout} from "@/routes";
 import {Link, usePage} from "@inertiajs/react";
 import profile from "@/routes/profile";
 import {HomeIcon} from "lucide-react";
@@ -21,6 +21,13 @@ const navItems = [
     {
         label: "Modifier le profil",
         url: profile.edit()
+    }
+];
+
+const adminItems = [
+    {
+        label: "Gestion des images",
+        url: gestionImages()
     }
 ]
 
@@ -77,7 +84,15 @@ const AppSidebar = () => {
                     <SidebarGroup>
                         <SidebarGroupLabel>Partie administrateur</SidebarGroupLabel>
                         <SidebarGroupContent>
-                            <p>Essai</p>
+                            <SidebarMenu>
+                                {adminItems.map((item, i) => (
+                                    <SidebarMenuItem key={i}>
+                                        <SidebarMenuButton asChild isActive={isActive(item.url.url)}>
+                                            <Link href={item.url}>{item.label}</Link>
+                                        </SidebarMenuButton>
+                                    </SidebarMenuItem>
+                                ))}
+                            </SidebarMenu>
                         </SidebarGroupContent>
                     </SidebarGroup>
                 )}
