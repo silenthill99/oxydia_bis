@@ -6,7 +6,7 @@ export default function Welcome() {
         <PageComponents>
             <Head title="Page d'accueil"/>
             <h1 className={"indent-1"}>Page d'accueil</h1>
-            <p>Bienvenue sur le site principal de l'infrastructure Oxydia</p>
+            <p>Bienvenue sur le site principal de l'infrastructure Nebralis</p>
             <p>Oxydia est un projet de network ayant pour but de regrouper divers serveurs Minecraft.</p>
         </PageComponents>
     )

@@ -25,7 +25,7 @@ const ReglementPvpFaction = () => {
                 <p>
                     Pour rappel : Le TpKill consiste à se téléporter à un joueur dans le but de le tuer (ou l'inverse,
                     soit
-                    téléporter un joueur sur nous dans le burt de le tuer). Cela est également totalement interdit.
+                    téléporter un joueur sur nous dans le but de le tuer). Cela est également totalement interdit.
                 </p><br/>
                 <li className={"text-3xl underline"}>
                     <strong>Les arnaques</strong>
