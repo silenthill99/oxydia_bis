@@ -19,7 +19,7 @@ const Images: React.FC<Props> = ({server_name, images}) => {
                         <a key={index} href={storage.local(image.image_path).url} target={"_blank"}
                            className={"bg-white border border-slate-300 rounded shadow md:hover:scale-125 duration-300 flex flex-col"}>
                             <strong className={"text-center w-full inline-block"}>{image.image_name}</strong>
-                            <img src={storage.local(image.image_path).url} className={"w-full h-full object-cover"}
+                            <img src={"/storage/" + image.image_path} className={"w-full h-full object-cover"}
                                  alt={image.image_name}/>
                         </a>
                     ))

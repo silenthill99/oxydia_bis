@@ -43,7 +43,7 @@ const Create = () => {
                                     <SelectValue placeholder="-- Choix du serveur --" />
                                 </SelectTrigger>
                                 <SelectContent>
-                                    <SelectItem value={"RolePlay"}>Serveur RolePlay</SelectItem>
+                                    <SelectItem value={"server_rp"}>Serveur RolePlay</SelectItem>
                                     <SelectItem value={"Pvp-Faction"}>Serveur PvP Faction</SelectItem>
                                     <SelectItem value={"Harry PoCraft"}>Serveur Harry PoCraft</SelectItem>
                                 </SelectContent>
