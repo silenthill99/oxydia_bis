@@ -47,6 +47,6 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::resource("/images", ImageController::class)->except("index", "show");
 });
 
-Route::resource("/images", ImageController::class)->only("index");
+Route::resource("/images", ImageController::class)->only("index", "store");
 
 require __DIR__.'/auth.php';

@@ -16,7 +16,7 @@ const Images: React.FC<Props> = ({server_name, images}) => {
                     <p>Aucune images actuellement</p>
                 ) : (
                     images.map((image, index) => (
-                        <a key={index} href={image.image_path} target={"_blank"}
+                        <a key={index} href={storage.local(image.image_path).url} target={"_blank"}
                            className={"bg-white border border-slate-300 rounded shadow md:hover:scale-125 duration-300 flex flex-col"}>
                             <strong className={"text-center w-full inline-block"}>{image.image_name}</strong>
                             <img src={storage.local(image.image_path).url} className={"w-full h-full object-cover"}
