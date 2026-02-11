@@ -1,5 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import {Head, usePage} from '@inertiajs/react';
+import {Head, Link, usePage} from '@inertiajs/react';
 import SharedData, {Role} from "@/types";
 import {Separator} from "@/Components/ui/separator";
 import {Card, CardContent, CardHeader, CardTitle} from "@/Components/ui/card";
@@ -40,6 +40,7 @@ export default function Dashboard() {
                     </div>
                 </div>
             </div>
+            <Link href={""}>Supprimer le compte</Link>
         </AuthenticatedLayout>
     );
 }

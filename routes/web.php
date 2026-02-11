@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CGUController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GestionImageController;
 use App\Http\Controllers\ImageController;
@@ -50,5 +51,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 });
 
 Route::resource("images", ImageController::class)->only("index");
+
+Route::get("/cgu", CGUController::class)->name("cgu");
 
 require __DIR__.'/auth.php';
