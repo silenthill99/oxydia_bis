@@ -6,7 +6,7 @@ import {Table, TableBody, TableCell, TableHead, TableHeader, TableRow} from "@/C
 import {Image} from "@/types";
 import storage from "@/routes/storage";
 import {Button} from "@/Components/ui/button";
-import {TrashIcon} from "lucide-react";
+import {FeatherIcon, TrashIcon} from "lucide-react";
 import ImageController from "@/actions/App/Http/Controllers/ImageController";
 
 const GestionImages = () => {
@@ -20,17 +20,21 @@ const GestionImages = () => {
                     <TableHeader>
                         <TableRow>
                             <TableHead>Image</TableHead>
+                            <TableHead>Actions</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
                         {images.map(image => (
                             <TableRow key={image.id}>
                                 <TableCell>
-                                    <img src={storage.local(image.image_path).url} alt={"Preview"}/>
+                                    <img src={storage.local(image.image_path).url} alt={"Preview"} width={500}/>
                                 </TableCell>
                                 <TableCell>
                                     <Button variant={"destructive"} formMethod={"post"} onClick={() => router.delete(ImageController.destroy(image.id).url)}>
                                         <TrashIcon className={"text-white"}/>
+                                    </Button>
+                                    <Button variant={"ghost"} onClick={() => router.visit(ImageController.edit(image.id).url)}>
+                                        <FeatherIcon/>
                                     </Button>
                                 </TableCell>
                             </TableRow>

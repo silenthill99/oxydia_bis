@@ -38,7 +38,7 @@ class ImagePolicy
      */
     public function update(User $user, Image $image): bool
     {
-        return false;
+        return $image->user()->is($user) ||$user->can('isAdmin');
     }
 
     /**

@@ -1,0 +1,30 @@
+<?php
+
+namespace App\Http\Requests;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class UpdateImageRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return request()->user()->can('update', $this->route('image'));
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        return [
+            "server_name" => "required|string|max:255",
+            "image" => "nullable|file|image|mimes:jpeg,png,jpg",
+            'image_name' => "required|string|max:255"
+        ];
+    }
+}
