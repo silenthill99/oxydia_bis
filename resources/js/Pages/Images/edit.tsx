@@ -25,7 +25,7 @@ const Edit = () => {
             <Head>
                 <title>Modifier une image</title>
             </Head>
-            <Form {...ImageController.update.form({image: image})}>
+            <Form {...ImageController.update.form({image: image.id})}>
                 {({errors}) => (
                     <div className={"space-y-4"}>
                         <div>
