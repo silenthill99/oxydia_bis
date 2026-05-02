@@ -26,3 +26,6 @@ resources/js/routes
 resources/js/wayfinder
 .claude
 nul
+AGENTS.md
+.junie
+.ai
