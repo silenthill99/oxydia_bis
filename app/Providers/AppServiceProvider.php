@@ -28,5 +28,9 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('isAdmin', function ($user) {
             return $user->roles()->where('role', RoleEnum::ADMIN->value)->exists();
         });
+
+        Gate::define('isResponsable', function ($user) {
+            return $user->roles()->where('level', '>=', RoleEnum::RESPONSABLE->level())->exists();
+        });
     }
 }

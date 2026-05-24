@@ -31,7 +31,7 @@ export default function Dashboard() {
                                 <ul>
                                     {roles.map((role) => (
                                         <li key={role.id}>
-                                            <Badge>{role.role}</Badge>
+                                            <Badge>{role.label}</Badge>
                                         </li>
                                     ))}
                                 </ul>

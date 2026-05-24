@@ -35,4 +35,5 @@ export interface Image {
 export interface Role {
     id: number;
     role: string;
+    label: string;
 }

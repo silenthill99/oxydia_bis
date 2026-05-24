@@ -16,13 +16,10 @@ class DashboardController extends Controller
     {
         Auth::user()->load('messages', 'roles');
 
-        $roles = Auth::user()->roles->map(fn($role) => [
-            'id' => $role->id,
-            'role' => RoleEnum::from($role->role)->label(),
-        ]);
+        $roles = Auth::user()->roles;
 
         return Inertia::render('Dashboard', [
-            "roles" => $roles,
+            'roles' => $roles
         ]);
     }
 }
