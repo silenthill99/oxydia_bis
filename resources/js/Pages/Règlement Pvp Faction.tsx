@@ -1,11 +1,11 @@
 import React from 'react';
 import {Head} from "@inertiajs/react";
-import PageComponents from "@/Components/PageComponents";
+import PageLayout from "@/Layouts/PageLayout";
 
 
 const ReglementPvpFaction = () => {
     return (
-        <PageComponents>
+        <PageLayout>
             <Head title={"Règlement Pvp Faction"}/>
             <h1>Règlement Pvp-Faction</h1>
             <p className={"text-red-400"}>Ce règlement est disposé à être modifié régulièrement. Songez donc à le consulter de façon régulière.</p>
@@ -66,7 +66,7 @@ const ReglementPvpFaction = () => {
                     Vos opinions politiques vous sont propres. Merci de ne pas débattre là-dessus sur le serveur.
                 </p>
             </ol>
-        </PageComponents>
+        </PageLayout>
     );
 };
 

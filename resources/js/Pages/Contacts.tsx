@@ -1,6 +1,6 @@
 import React from 'react';
 import {Form, Head} from "@inertiajs/react";
-import PageComponents from "@/Components/PageComponents";
+import PageLayout from "@/Layouts/PageLayout";
 import MessageController from "@/actions/App/Http/Controllers/MessageController";
 import {Input} from "@/Components/ui/input";
 import {Label} from "@/Components/ui/label";
@@ -12,7 +12,7 @@ import {cn} from "@/lib/utils";
 const Contacts = () => {
 
     return (
-        <PageComponents>
+        <PageLayout>
             <Head title="Page de contacts"/>
             <h1>Page de contacts</h1>
             <Form {...MessageController.store.form()} className={"mb-5"} resetOnSuccess={true}>
@@ -62,7 +62,7 @@ const Contacts = () => {
                     </div>
                 )}
             </Form>
-        </PageComponents>
+        </PageLayout>
     );
 };
 

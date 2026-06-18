@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {Head, router, usePage} from "@inertiajs/react";
 import Images from "@/Components/Images";
-import PageComponents from "@/Components/PageComponents";
+import PageLayout from "@/Layouts/PageLayout";
 import SharedData, {Image} from "@/types";
 import {Button} from "@/Components/ui/button";
 import images from "@/routes/images";
@@ -12,7 +12,7 @@ const Index = () => {
         console.log(serverRp);
     }, [])
     return (
-        <PageComponents>
+        <PageLayout>
             <Head title={"Quelques images"}/>
             <h1 className={"text-center"}>Quelques images</h1>
             {auth.isAdmin && (
@@ -20,7 +20,7 @@ const Index = () => {
             )}
             <p>Clique sur les images pour les agrandir</p>
             <Images images={serverRp} server_name={"RolePlay"} />
-        </PageComponents>
+        </PageLayout>
     );
 };
 

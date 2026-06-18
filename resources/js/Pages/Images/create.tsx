@@ -1,5 +1,5 @@
 import React, {ChangeEvent, useState} from 'react';
-import PageComponents from "@/Components/PageComponents";
+import PageLayout from "@/Layouts/PageLayout";
 import {Form, Head} from "@inertiajs/react";
 import {Label} from "@/Components/ui/label";
 import {Input} from "@/Components/ui/input";
@@ -18,7 +18,7 @@ const Create = () => {
         setPreview(URL.createObjectURL(file))
     }
     return (
-        <PageComponents>
+        <PageLayout>
             <Head title={"Ajouter une image"}/>
             <Form {...ImageController.store.form()}>
                 {({errors}) => (
@@ -62,7 +62,7 @@ const Create = () => {
                     </div>
                 )}
             </Form>
-        </PageComponents>
+        </PageLayout>
     );
 };
 

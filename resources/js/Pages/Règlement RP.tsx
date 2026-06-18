@@ -1,13 +1,13 @@
 import React from 'react';
 import {Head} from "@inertiajs/react";
-import PageComponents from "@/Components/PageComponents";
+import PageLayout from "@/Layouts/PageLayout";
 
 const ReglementRp = () => {
     return (
-        <PageComponents>
+        <PageLayout>
             <Head title={"Règlement RP"}/>
             <h1>Règlement RolePlay</h1>
-        </PageComponents>
+        </PageLayout>
     );
 };
 

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import PageComponents from "@/Components/PageComponents";
+import PageLayout from "@/Layouts/PageLayout";
 import {Form, Head, usePage} from "@inertiajs/react";
 import {Image} from "@/types";
 import {Input} from "@/Components/ui/input";
@@ -21,7 +21,7 @@ const Edit = () => {
     }
 
     return (
-        <PageComponents>
+        <PageLayout>
             <Head>
                 <title>Modifier une image</title>
             </Head>
@@ -65,7 +65,7 @@ const Edit = () => {
                     </div>
                 )}
             </Form>
-        </PageComponents>
+        </PageLayout>
     );
 };
 

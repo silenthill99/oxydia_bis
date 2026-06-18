@@ -1,10 +1,10 @@
 import React from 'react';
 import {Head} from "@inertiajs/react";
-import PageComponents from "@/Components/PageComponents";
+import PageLayout from "@/Layouts/PageLayout";
 
 const Cgu = () => {
     return (
-        <PageComponents>
+        <PageLayout>
             <Head title={"Conditions générales d'utilisation"}/>
             <h1>Conditions Générales d'Utilisation</h1>
             <p className={"text-gray-600 dark:text-gray-400 italic mb-8"}>
@@ -120,7 +120,7 @@ const Cgu = () => {
                     accessible depuis le site Nebralis.
                 </p>
             </ol>
-        </PageComponents>
+        </PageLayout>
     );
 };
 
