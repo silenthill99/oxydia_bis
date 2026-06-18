@@ -38,10 +38,7 @@ class ImageController extends Controller
         ]);
 
         $image = $request->file('image');
-        $imageName = time() . "_" . $image->getClientOriginalName();
-        $image->storeAs('images', $imageName, 'public');
-
-        $data['image_path'] = "/images/".$imageName;
+        $data['image_path'] = $image->store('images', 'public');
 
         Auth::user()->images()->create($data);
 
@@ -65,10 +62,7 @@ class ImageController extends Controller
                 Storage::disk('public')->delete($image->image_path);
             }
             $file = $request->file('image');
-            $imageName = time() . "_" . $file->getClientOriginalName();
-            $file->storeAs('images', $imageName, 'public');
-
-            $data['image_path'] = "/images/".$imageName;
+            $data['image_path'] = $file->store('images', 'public');
         }
 
         $image->update($data);
