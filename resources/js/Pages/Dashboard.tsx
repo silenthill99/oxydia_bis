@@ -1,12 +1,12 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import {Head, Link, usePage} from '@inertiajs/react';
-import SharedData, {Role} from "@/types";
+import {Role} from "@/types";
 import {Separator} from "@/Components/ui/separator";
 import {Card, CardContent, CardHeader, CardTitle} from "@/Components/ui/card";
 import {Badge} from "@/Components/ui/badge";
 
 export default function Dashboard() {
-    const {auth, roles} = usePage<SharedData & {roles: Role[]}>().props
+    const {auth, roles} = usePage<{roles: Role[]}>().props
     return (
         <AuthenticatedLayout>
             <Head title="Dashboard" />

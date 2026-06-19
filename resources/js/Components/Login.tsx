@@ -1,12 +1,11 @@
 import React from 'react';
-import SharedData from "@/types";
 import {Link, usePage} from "@inertiajs/react";
 import {dashboard, login, register} from "@/routes";
 
 interface Props extends React.HTMLProps<HTMLDivElement> {}
 
 const Login = ({...props}: Props) => {
-    const {auth} = usePage<SharedData>().props
+    const {auth} = usePage().props
     return (
         <div {...props}>
             {auth.user ? (

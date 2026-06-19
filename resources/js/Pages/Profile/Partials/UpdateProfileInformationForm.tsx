@@ -6,7 +6,6 @@ import { Transition } from '@headlessui/react';
 import {Form, Link, usePage} from '@inertiajs/react';
 import profile from "@/routes/profile";
 import verification from "@/routes/verification";
-import SharedData from "@/types";
 
 export default function UpdateProfileInformation({
     mustVerifyEmail,
@@ -17,7 +16,7 @@ export default function UpdateProfileInformation({
     status?: string;
     className?: string;
 }) {
-    const user = usePage<SharedData>().props.auth.user;
+    const user = usePage().props.auth.user;
 
 
     return (

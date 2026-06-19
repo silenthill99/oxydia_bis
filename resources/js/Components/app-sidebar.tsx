@@ -11,7 +11,6 @@ import {accueil, dashboard, gestionImages, logout} from "@/routes";
 import {Link, usePage} from "@inertiajs/react";
 import profile from "@/routes/profile";
 import {HomeIcon} from "lucide-react";
-import SharedData from "@/types";
 
 const navItems = [
     {
@@ -33,7 +32,7 @@ const adminItems = [
 
 const AppSidebar = () => {
 
-    const {auth} = usePage<SharedData>().props;
+    const {auth} = usePage().props;
     const {url} = usePage()
 
     useEffect(() => {

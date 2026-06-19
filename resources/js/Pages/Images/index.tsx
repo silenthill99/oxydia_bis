@@ -2,12 +2,12 @@ import React, {useEffect} from 'react';
 import {Head, router, usePage} from "@inertiajs/react";
 import Images from "@/Components/Images";
 import PageLayout from "@/Layouts/PageLayout";
-import SharedData, {Image} from "@/types";
+import {Image} from "@/types";
 import {Button} from "@/Components/ui/button";
 import images from "@/routes/images";
 
 const Index = () => {
-    const {serverRp, auth} = usePage<SharedData & { serverRp: Image[] }>().props;
+    const {serverRp, auth} = usePage<{ serverRp: Image[] }>().props;
     useEffect(() => {
         console.log(serverRp);
     }, [])

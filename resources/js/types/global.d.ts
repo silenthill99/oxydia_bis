@@ -1,13 +1,14 @@
-import { PageProps as InertiaPageProps } from '@inertiajs/core';
-import { AxiosInstance } from 'axios';
-import { PageProps as AppPageProps } from './';
-
-declare global {
-    interface Window {
-        axios: AxiosInstance;
-    }
-}
+import { Auth } from './index';
 
 declare module '@inertiajs/core' {
-    interface PageProps extends InertiaPageProps, AppPageProps {}
+    export interface InertiaConfig {
+        sharedPageProps: {
+            name: string;
+            quote: { message: string; author: string };
+            auth: Auth;
+            sidebarOpen: boolean;
+
+            [key: string]: unknown;
+        }
+    }
 }

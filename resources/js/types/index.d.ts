@@ -6,21 +6,10 @@ export interface User {
     messages: Message[];
 }
 
-interface Auth {
+export interface Auth {
     user: User | null;
     isAdmin: boolean;
 }
-
-interface SharedData {
-    name: string;
-    quote: { message: string; author: string };
-    auth: Auth;
-    sidebarOpen: boolean;
-
-    [key: string]: unknown;
-}
-
-export default SharedData
 
 export interface Image {
     id: number;
