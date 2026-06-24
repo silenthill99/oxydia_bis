@@ -1,12 +1,12 @@
-import Checkbox from '@/Components/Checkbox';
 import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
-import TextInput from '@/Components/TextInput';
 import GuestLayout from '@/Layouts/GuestLayout';
 import {Form, Head, Link} from '@inertiajs/react';
 import password from "@/routes/password";
 import AuthenticatedSessionController from "@/actions/App/Http/Controllers/Auth/AuthenticatedSessionController";
+import {Input} from "@/Components/ui/input";
+import {Checkbox} from "@/Components/ui/checkbox";
 
 export default function Login({
     status,
@@ -31,13 +31,12 @@ export default function Login({
                         <div>
                             <InputLabel htmlFor="email" value="Email" />
 
-                            <TextInput
+                            <Input
                                 id="email"
                                 type="email"
                                 name="email"
                                 className="mt-1 block w-full"
                                 autoComplete="username"
-                                isFocused={true}
                             />
 
                             <InputError message={errors.email} className="mt-2" />
@@ -46,7 +45,7 @@ export default function Login({
                         <div className="mt-4">
                             <InputLabel htmlFor="password" value="Password" />
 
-                            <TextInput
+                            <Input
                                 id="password"
                                 type="password"
                                 name="password"
