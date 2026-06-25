@@ -39,6 +39,10 @@ const rules: Rule[] = [
         title: "La politique",
         text: "Vos opinions politiques vous appartiennent. Merci de ne pas en débattre sur le serveur.",
     },
+    {
+        title: "Duplication",
+        text: "L'exploitation d'un bug de duplication est strictement interdite. Si vous en découvrez un, prévenez immédiatement l'équipe d'administration."
+    }
 ];
 
 const ReglementPvpFaction = () => {
