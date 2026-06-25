@@ -2,73 +2,84 @@ import React from 'react';
 import {Head} from "@inertiajs/react";
 import PageLayout from "@/Layouts/PageLayout";
 
+type Rule = {
+    title: string;
+    text: string;
+    sanction?: string;
+};
+
+const rules: Rule[] = [
+    {
+        title: "Le cheat",
+        text: "L'utilisation de toute forme de triche est strictement interdite. Au-delà de fausser l'équilibre du jeu et l'économie du serveur, elle gâche l'expérience de l'ensemble des joueurs.",
+        sanction: "Bannissement d'un mois à définitif",
+    },
+    {
+        title: "Le TpKill",
+        text: "Le TpKill consiste à se téléporter vers un joueur — ou à le téléporter vers soi — dans le seul but de l'éliminer. Cette pratique est totalement interdite.",
+    },
+    {
+        title: "Les arnaques",
+        text: "Les arnaques au shop sont tolérées, mais ne doivent jamais devenir abusives. Cette limite vise à éviter les conflits inutiles entre joueurs.",
+    },
+    {
+        title: "Les skins et les pseudos",
+        text: "Présentez-vous sur le serveur avec un skin et un pseudo corrects. Tout contenu à caractère pornographique, politique, terroriste ou assimilé est formellement interdit.",
+        sanction: "Bannissement d'un mois à définitif",
+    },
+    {
+        title: "Le respect",
+        text: "Le respect est la règle la plus importante. Vous croiserez des joueurs que vous ne connaissez pas : restez courtois, car vous ne pouvez pas anticiper la façon dont ils réagiront.",
+    },
+    {
+        title: "La laïcité",
+        text: "Lorsque vous jouez sur le serveur, laissez de côté tout ce qui touche, de près ou de loin, à la religion.",
+    },
+    {
+        title: "La politique",
+        text: "Vos opinions politiques vous appartiennent. Merci de ne pas en débattre sur le serveur.",
+    },
+];
 
 const ReglementPvpFaction = () => {
     return (
         <PageLayout>
             <Head title={"Règlement Pvp Faction"}/>
+
             <h1>Règlement Pvp-Faction</h1>
-            <p className={"text-red-400"}>Ce règlement est disposé à être modifié régulièrement. Songez donc à le consulter de façon régulière.</p>
-            <ol className={"list-decimal list-inside my-20"}>
-                <li className={"text-3xl underline"}>
-                    <strong>Le cheat</strong>
-                </li>
-                <p>Toute forme de cheat est formellement interdite. Les sanctions pourront aller d'un bannissement d'1
-                    mois
-                    jusqu'à un bannissement définitif. Rappelons que le cheat gache l'expérience de jeu des autres
-                    joueurs, ainsi que
-                    l'économie du serveur.
-                </p> <br/>
-                <li className={"text-3xl underline"}>
-                    <strong>Le TpKill</strong>
-                </li>
+
+            <div className={"mt-2 mb-12 flex items-start gap-3 rounded-lg border border-amber-300 bg-amber-50 px-4 py-3 text-amber-800 dark:border-amber-500/40 dark:bg-amber-500/10 dark:text-amber-300"}>
+                <span aria-hidden={"true"} className={"text-lg leading-6"}>⚠️</span>
                 <p>
-                    Pour rappel : Le TpKill consiste à se téléporter à un joueur dans le but de le tuer (ou l'inverse,
-                    soit
-                    téléporter un joueur sur nous dans le but de le tuer). Cela est également totalement interdit.
-                </p><br/>
-                <li className={"text-3xl underline"}>
-                    <strong>Les arnaques</strong>
-                </li>
-                <p>
-                    Les arnaques au shop sont tolérées mais il est interdit d'en abuser, afin de limiter les conflits
-                    entre les joueurs.
+                    Ce règlement est susceptible d'évoluer régulièrement. Pensez à le consulter de façon régulière.
                 </p>
-                <br/>
-                <li className={"text-3xl underline"}>
-                    <strong>Les skins et les pseudos</strong>
-                </li>
-                <p>
-                    Merci de vous présenter sur le serveur avec un skin correct. Les skins à caractère pornographique,
-                    politique, terroriste, etc. sont formellement interdits et entraineront des sanctions pouvant aller d'un
-                    bannissement d'un mois jusqu'à un bannissement définitif. Ceci est également valable pour les pseudos.
-                </p>
-                <br/>
-                <li className={"text-3xl underline"}>
-                    <strong>Le respect</strong>
-                </li>
-                <p>
-                    Le respect sur le serveur est primordial. N'oubliez pas que vous serez confrontés à des personnes que
-                    vous ne connaissez pas, vous ne savez donc pas comment la personne en face dee vous pourrait réagir.
-                </p>
-                <br/>
-                <li className={"text-3xl underline"}>
-                    <strong>La laïcité</strong>
-                </li>
-                <p>
-                    En venant jouer sur le serveur, vous mettez de côté tout ce qui est lié de près ou de loin à votre religion.
-                </p>
-                <br/>
-                <li className={"text-3xl underline"}>
-                    <strong>Politique</strong>
-                </li>
-                <p>
-                    Vos opinions politiques vous sont propres. Merci de ne pas débattre là-dessus sur le serveur.
-                </p>
+            </div>
+
+            <ol className={"grid gap-5 sm:grid-cols-2"}>
+                {rules.map((rule, index) => (
+                    <li
+                        key={rule.title}
+                        className={"flex flex-col gap-3 rounded-xl border border-gray-200 bg-white/70 p-6 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800/50"}
+                    >
+                        <div className={"flex items-center gap-3"}>
+                            <span className={"flex size-9 shrink-0 items-center justify-center rounded-full bg-linear-to-br from-blue-600 to-indigo-600 font-semibold text-white"}>
+                                {index + 1}
+                            </span>
+                            <h2 className={"!py-0 text-xl font-semibold"}>{rule.title}</h2>
+                        </div>
+
+                        <p className={"text-gray-600 dark:text-gray-300"}>{rule.text}</p>
+
+                        {rule.sanction && (
+                            <span className={"mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-red-50 px-3 py-1 text-sm font-medium text-red-700 dark:bg-red-500/10 dark:text-red-400"}>
+                                Sanction : {rule.sanction}
+                            </span>
+                        )}
+                    </li>
+                ))}
             </ol>
         </PageLayout>
     );
 };
-
 
 export default ReglementPvpFaction;
