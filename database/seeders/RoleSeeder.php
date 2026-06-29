@@ -17,9 +17,9 @@ class RoleSeeder extends Seeder
         DB::table('roles')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         foreach (RoleEnum::cases() as $role) {
-            DB::table('roles')->updateOrInsert(
-                ['role' => $role->value],
+            DB::table('roles')->insert(
                 [
+                    'role' => $role->value,
                     'level' => $role->level(),
                     'label' => $role->label(),
                     'created_at' => now(),

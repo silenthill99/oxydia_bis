@@ -6,6 +6,7 @@ import {MenuIcon} from "lucide-react";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/Components/ui/accordion";
 import {Separator} from "@/Components/ui/separator";
 import images from "@/routes/images";
+import join from "@/routes/join";
 
 const Header = () => {
 
@@ -36,6 +37,10 @@ const Header = () => {
         {
             label: "Nous contacter",
             href: contacts(),
+        },
+        {
+            label: "Nous rejoindre",
+            href: join.infos(),
         }
     ]
     const [isOpenMenu, setIsOpenMenu] = useState(false);
