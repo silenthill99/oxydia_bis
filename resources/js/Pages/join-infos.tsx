@@ -2,6 +2,7 @@ import React from 'react';
 import PageLayout from "@/Layouts/PageLayout";
 import {Head} from "@inertiajs/react";
 import { Button } from "@/Components/ui/button";
+import {toast} from "sonner";
 
 const JoinInfos = () => {
     return (
@@ -15,7 +16,10 @@ const JoinInfos = () => {
                 <li>Avoir 18 ans ou plus</li>
             </ul>
             <p>Un document sera rédigé d'ici peu.</p>
-            <Button className="my-10">Commencer le test</Button>
+            <Button className="my-10" onClick={() => toast("La page n'est pas encore disponible", {
+                closeButton: true,
+                position: "top-center",
+            })}>Commencer le test</Button>
         </PageLayout>
     );
 };
